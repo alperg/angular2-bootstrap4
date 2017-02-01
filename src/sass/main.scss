@@ -1,0 +1,129 @@
+@import 'variables.scss';
+@import "glyphicons.scss";
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+
+// Header
+.header {
+  min-height: 60px;
+  background-color: $navbar-bg-color;
+  .navbar-toggler {
+    cursor: pointer;
+    outline: none;
+  }
+  .navbar-collapse.collapsing,
+  .navbar-collapse.show {
+    .main-menu {
+      padding: 20px 10px 10px 10px;
+    }
+    .user-menu {
+      padding: 0 10px;
+    }
+  }
+  .navbar-brand {
+    margin-top: 0;
+    margin-right: 0;
+    .logo {
+      position: fixed;
+      display: inline-block;
+      top: 0;
+      left: 0;
+      width: 80px;
+      height: 60px;
+      background: $logo-background-color url(../assets/images/logo.png) no-repeat center;
+    }
+    .brand {
+      color: #fff;
+      font-weight: $font-weight-large;
+      margin-left: 85px;
+      .name {
+        color: #fff;
+        font-weight: $font-weight-small;
+        margin-left: 5px;
+        .beta {
+          font-size: $font-size-small;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  // User menu
+  .user-menu {
+    margin-top: 8px;
+    margin-bottom: 1rem;
+    .dropdown {
+      .dropdown-toggle {
+        font-size: $font-size-base;
+        font-weight: $font-weight-normal;
+        color: #fff;
+        opacity: .6;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+          opacity: 1;
+        }
+      }
+    }
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+.navbar-inverse .navbar-toggler:hover,
+.navbar-inverse .navbar-toggler:hover:focus {
+  border-color: rgba(255, 255, 255, .2);
+}
+
+// When the main menu is on the header
+@media (min-width: 992px) {
+  .header {
+    padding: 0;
+    height: 60px;
+    .navbar-brand {
+      margin-top: 0;
+    }
+    .navbar-collapse {
+      height: 60px;
+      overflow: hidden;
+      margin-right: 19%;
+      .main-menu {
+        line-height: 64px;
+        font-size: 15px;
+        .nav-link {
+          margin: 0 6px;
+          height: 60px;
+          padding: 0 15px;
+          &.active {
+            border-bottom: 4px solid $active-menu-color;
+          }
+        }
+      }
+      .user-menu {
+        position: fixed;
+        right: 10px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+// When the main menu is not visible on the header
+@media (max-width: 992px) {
+  .header {
+    padding: 0;
+    .navbar-toggler,
+    .navbar-brand {
+      margin-top: 11px;
+    }
+  }
+}
+
+// 992px override (a possible BS4 bug)
+@media (width: 992px) {
+  .navbar-brand {
+    margin-top: 0 !important;
+  }
+}

@@ -1,0 +1,53 @@
+<nav class="header navbar navbar-toggleable-md navbar-inverse fixed-top">
+  
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse,#mainMenu" 
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-brand">
+    <span class="logo"></span>
+    <span class="brand">Brand<span class="name">App Name<span class="beta">(Beta)</span></span></span>
+  </div>
+
+  <div class="collapse navbar-collapse justify-content-md-center" id="navbarCollapse">
+    
+    <ul class="navbar-nav main-menu" id="mainMenu">
+      <li *ngFor="let item of menuItems" class="nav-item">
+        <a [routerLink]="item.link" class="nav-link" routerLinkActive="active" href="">
+          {{item.title}}
+        </a>
+      </li>
+    </ul>
+    
+    <ul class="navbar-nav user-menu">
+      <li class="nav-item dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="user-dropdown">
+            <span class="glyphicon glyphicon-user"></span> 
+            <span class="title">{{user.name}}</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="user-dropdown">
+            <a class="dropdown-item" href="#">
+              <span class="glyphicon glyphicon-list-alt"></span> 
+              <span class="title">About</span>
+            </a>
+            <a class="dropdown-item" href="#">
+              <span class="glyphicon glyphicon-wrench"></span> 
+              <span class="title">Settings</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="glyphicon glyphicon-log-out"></span> 
+              <span class="title">Logout</span>
+            </a>
+          </div>
+      </li>
+    </ul>
+
+  </div>
+
+</nav>
+
+<div class="container-fluid main-view">
+  <router-outlet></router-outlet>
+</div>
